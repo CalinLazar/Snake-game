@@ -1,0 +1,51 @@
+
+.head.up {
+    background-position: -192px 0;
+}
+.head.down {
+    background-position: -256px -64px;
+}
+.head.left {
+    background-position: -192px -64px;
+}
+.head.right {
+    background-position: -256px 0;
+}
+.body.up {
+    background-position: -128px -64px;
+}
+.body.down {
+    background-position: -128px -64px;
+}
+.body.left {
+    background-position: -64px 0px;
+}
+.body.right {
+    background-position: -64px 0px;
+}
+
+.body.up-left {
+    background-position: -128px 0;
+}
+.body.up-right {
+    background-position: 0 0;
+}
+.body.down-left {
+    background-position: -128px -128px;
+}
+.body.down-right {
+    background-position: 0px -64px;
+}
+
+.tail.up {
+    background-position: -192px -128px;
+}
+.tail.down {
+    background-position: -256px -192px;
+}
+.tail.left {
+    background-position: -192px -192px;
+}
+.tail.right {
+    background-position: -256px -128px;
+}

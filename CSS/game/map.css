@@ -1,0 +1,16 @@
+#map {
+    border: 5px solid #555;
+    color: #fff;
+    position: relative;
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 9.9%, #777 10%),
+            repeating-linear-gradient(to right, transparent, transparent 9.9%, #777 10%);
+        
+}
+/* #map > div {
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    border: .5px solid #777;
+    float: left;
+} */
+
