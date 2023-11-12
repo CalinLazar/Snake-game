@@ -33,10 +33,11 @@ map.children.push(snake);
 map.render(container)
 
 
-
+const scoreBox = document.getElementById("score-box");
 setInterval(()=> {
     snake.move()
-    map.render(container)
+    map.render(container);
+    
 }, 500 )
 
 const userAction = (e) => {
@@ -47,4 +48,3 @@ const userAction = (e) => {
         case "ArrowLeft": snake.children[0].dir = "left"; break;
     }
 }
-

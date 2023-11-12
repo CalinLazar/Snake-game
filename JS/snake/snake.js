@@ -28,6 +28,34 @@ class Snake {
                 if(s.dir == "right") {s.x++}
                 if(s.dir == "left")  {s.x--}
 
+                const onCoin = map.children.some(
+                    (obj) => obj instanceof Coin && obj.x === s.x && obj.y === s.y
+                );
+                if (onCoin) {
+                    // Add points to the score
+                    this.score += 50;
+                    // Remove the coin from the map
+                    const coinIndex = map.children.findIndex(
+                        (obj) => obj instanceof Coin && obj.x === s.x && obj.y === s.y
+                    );
+                    if (coinIndex !== -1) {
+                        map.children.splice(coinIndex, 1);
+                    }
+                }
+
+                const onShroom = map.children.some(obj => obj instanceof Shroom && obj.x === s.x && obj.y === s.y);
+                if (onShroom) {
+                    // Add a new segment in the middle of the snake
+                    const middleIndex = Math.floor(this.children.length / 2);
+                    const newSegment = new Body(s.x, s.y, s.dir);
+                    this.children.splice(middleIndex, 0, newSegment);
+                    // Remove the shroom from the map
+                    const shroomIndex = map.children.findIndex(obj => obj instanceof Shroom && obj.x === s.x && obj.y === s.y);
+                    if (shroomIndex !== -1) {
+                        map.children.splice(shroomIndex, 1);
+                    }
+                }
+
             } else {
                 // if+s where is the neighbor 
                 let neighbor = this.children[i + 1];
@@ -53,9 +81,16 @@ class Snake {
             }                        
         } )
 
-        this.children.reverse()
-        border()
-        
+        this.children.reverse();
+        border(); 
+    }
+    
+
+    grow() {
+        // Add a new body segment to the snake
+        const tail = this.children[this.children.length - 1];
+        const newSegment = new Body(tail.x, tail.y, tail.dir);
+        this.children.push(newSegment);
     }
     
     // when rendering the SNAKE - also render the head
@@ -150,4 +185,3 @@ function turnTail(s, neighbor) {
     }
 
 }
-
